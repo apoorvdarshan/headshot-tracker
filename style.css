@@ -1,0 +1,248 @@
+/* Reset + tap highlight off */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+body {
+  background: linear-gradient(to bottom, #010d06, #001f11);
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  overflow-x: hidden;
+}
+
+/* 🎯 Target Lock */
+.target-header {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  background: rgba(0, 20, 0, 0.8);
+  border: 1px solid #00ff00;
+  padding: 6px 14px;
+  border-radius: 10px;
+  text-shadow: 0 0 8px #00ff00;
+  z-index: 10;
+}
+
+/* 📹 Main Video Wrapper */
+.video-wrapper {
+  position: relative;
+  width: 800px;
+  height: 480px;
+  margin: 100px auto 0;
+  border-radius: 12px;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+  overflow: hidden;
+}
+
+/* 🎥 Video & Canvas Layers */
+video.input_video,
+canvas.output_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+video.input_video {
+  transform: scaleX(-1);
+}
+
+canvas.output_canvas {
+  z-index: 1;
+}
+
+/* 🐱 Cat Reaction Video */
+.reaction-wrapper {
+  position: absolute;
+  top: 120px;
+  left: calc(50% + 440px);
+  width: 280px;
+  height: 180px;
+  border-radius: 12px;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 20px #00ff00;
+  overflow: hidden;
+  background: black;
+  display: none;
+}
+
+#reactionVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🍔 Gesture Guide Panel */
+.gesture-guide {
+  position: absolute;
+  top: 320px;
+  left: calc(50% + 440px);
+  width: 260px;
+  font-size: 15px;
+  z-index: 10;
+}
+
+.hamburger {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 12px;
+  background: #001900;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #00ff00;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+  background: #003300;
+  color: #00ff00;
+  box-shadow: 0 0 14px #00ff00;
+}
+
+.hamburger:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 6px #00cc00 inset;
+}
+
+.guide-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 10px;
+  background: #002200;
+  border: 1px solid #00ff00;
+  padding: 0 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00ff00;
+  color: #00ff00;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.guide-content.show {
+  max-height: 300px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.guide-content ul {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.guide-content li {
+  margin-bottom: 6px;
+}
+
+/* 🔗 Footer Section */
+.social-footer {
+  margin-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
+  color: #00ff00;
+  font-family: monospace;
+  border-top: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.footer-heading {
+  font-size: 20px;
+  margin: 24px 0 10px;
+  text-shadow: 0 0 6px #00ff00;
+}
+
+.social-icons {
+  margin: 10px 0;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #00ff00;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: transparent;
+  text-decoration: none; /* ✅ This line removes the underline */
+  transition: transform 0.3s, color 0.3s, box-shadow 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #44ff44;
+  box-shadow: 0 0 10px #00ff00;
+  background-color: transparent;
+}
+
+.social-icons a:active {
+  transform: scale(1);
+  box-shadow: inset 0 0 6px #00cc00;
+  color: #00ff00;
+  background-color: transparent;
+}
+
+.credit {
+  margin-top: 10px;
+  padding-bottom: 30px;
+  font-size: 13px;
+  color: #66ff66;
+}
+
+/* 📱 Mobile Layout */
+@media (max-width: 880px) {
+  .target-header {
+    font-size: 16px;
+    padding: 4px 10px;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .video-wrapper {
+    width: 75vw; /* 👈 smaller */
+    height: auto;
+    aspect-ratio: 4 / 3;
+    transform: translateX(-10px); /* 👈 shifted left */
+    margin: 100px auto 0;
+  }
+
+  .reaction-wrapper {
+    position: static;
+    width: 65vw;
+    aspect-ratio: 3 / 2;
+    margin: 14px auto;
+  }
+
+  .gesture-guide {
+    position: static;
+    margin: 14px auto;
+    width: 65vw;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .guide-content {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+  .guide-content.show {
+    padding: 10px 8px;
+  }
+
+  .hamburger {
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 0 auto;
+  }
+}
