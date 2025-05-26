@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Headshot Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection@0.4/face_detection.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+  </head>
+  <body>
+    <h2 class="target-header">
+      🎯 Target Lock: <span id="coords">[0, 0]</span>
+    </h2>
+    <div class="video-wrapper">
+      <video class="input_video" autoplay muted playsinline></video>
+      <canvas class="output_canvas"></canvas>
+    </div>
+    <div class="reaction-wrapper">
+      <video
+        id="reactionVideo"
+        src="assets/angry-cat.mp4"
+        playsinline
+        preload="auto"
+        loop
+      ></video>
+    </div>
+    <div class="gesture-guide">
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="guide-content" id="guideContent">
+        <h3>Gesture Guide</h3>
+        <ul>
+          <li>
+            Raise both hands like you're surrendering — activates cat reaction
+          </li>
+          <li>Put hands down or make fists to hide it</li>
+          <li>Target lock tracks your forehead with red crosshair</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="social-footer">
+      <h2 class="footer-heading">Connect with me</h2>
+      <div class="social-icons">
+        <a
+          href="https://www.linkedin.com/in/apoorvdarshan"
+          class="social-click"
+          target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://x.com/apoorvdarshan"
+          class="social-click"
+          target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          href="https://github.com/apoorvdarshan/headshot-tracker"
+          class="social-click"
+          target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/404apoorv"
+          class="social-click"
+          target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/@apoorvdarshan"
+          class="social-click"
+          target="_blank"
+          ><i class="fab fa-youtube"></i
+        ></a>
+        <a href="mailto:ad13dtu@gmail.com" class="social-click"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+      <p class="credit">Made by Apoorv Darshan</p>
+    </footer>
+
+    <script>
+      document.addEventListener(
+        "click",
+        () => {
+          const vid = document.getElementById("reactionVideo");
+          vid.muted = false;
+        },
+        { once: true }
+      );
+    </script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
