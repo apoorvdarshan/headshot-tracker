@@ -4,11 +4,11 @@ Headshot Tracker is a real-time, browser-based face and gesture tracking system 
 
 ## 🔗 Live Preview
 
-🌐 [https://headshot-tracker.aopv.dev](https://headshot-tracker.aopv.dev)
+🌐 [https://headshot-tracker.apoorvdarshan.com](https://headshot-tracker.apoorvdarshan.com)
 
 ## 💻 Source Code
 
-📂 [https://github.com/aopv/headshot-tracker](https://github.com/aopv/headshot-tracker)
+📂 [https://github.com/apoorvdarshan/headshot-tracker](https://github.com/apoorvdarshan/headshot-tracker)
 
 ---
 
@@ -47,4 +47,4 @@ Let’s connect and build interactive web magic.
 
 ## 👨‍💻 Created by
 
-[Apoorv Darshan](https://github.com/aopv)
+[Apoorv Darshan](https://github.com/apoorvdarshan)
